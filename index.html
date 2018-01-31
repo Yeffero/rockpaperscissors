@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rick Paper Scissors </title>
+</head>
+<body>
+  <script>
+ 	// Your JavaScript goes here!
+
+  function  computerPlay()
+  { let resultado=0;
+    resultado= (Math.random() * 12) + 1;
+
+    if (resultado >=1 && resultado <= 4) {
+          return("rock");
+        }
+        else if (resultado >4 && resultado <= 8) {
+          return ("paper");
+        }else if (resultado  >8 && resultado<= 12) {
+            return("scissors");
+          }
+    }
+
+
+  function playRound(playerSelection, computerSelection) {
+  	// your code here!
+    playerSelection=playerSelection.toLowerCase();
+
+    if (playerSelection==="rock" && computerSelection === "paper")
+      {
+      return ("You Lose! Paper beats Rock");
+      }
+    else if (playerSelection==="rock" && computerSelection === "scissors") {
+      return ("You WIN! Rock beats scissors");
+    }
+    else if (playerSelection==="paper" && computerSelection === "scissors") {
+        return ("You Lose! Scissors beats Paper");
+    }
+    else if (playerSelection==="paper" && computerSelection === "rock") {
+      return ("You WIN! Paper beats Rock");
+    }
+    else if ( playerSelection==="scissors" && computerSelection === "rock") {
+      return ("You Lose! Rock beats Scissors");
+    }
+    else if (playerSelection==="scissors" && computerSelection === "paper") {
+      return ("You WIN! Scissors beats Paper");
+    }
+
+return (" T i e ");
+    }
+
+
+function game()
+{
+  let playerSelection="test";
+  let playerCount=0;
+  let computerCount=0;
+  let i=5;
+  let gano="Lo se";
+  while (i>0) {
+    do {
+    playerSelection = window.prompt("Rock,Paper,or Scissors", "rock");
+    playerSelection=playerSelection.toLowerCase();
+  } while (playerSelection !=="paper" && playerSelection !=="rock" && playerSelection!=="scissors")
+
+    gano = playRound(playerSelection, computerPlay());
+    quiengano=gano.search("WIN");
+    if ( quiengano>=0 )
+    {
+      playerCount++;
+    }
+    else if (gano.search("Lose")>=0) {
+      computerCount++;
+    }
+    console.log(gano);
+  i--;
+  }
+
+  if (playerCount > computerCount) {
+    console.log("Player Win !!!!, Player had:"+playerCount+"Computer had :  "+computerCount);
+  }
+  else {
+      console.log("Computer  Win !!!! , Player had:"+playerCount+"Computer had : "+ computerCount);
+    }
+  }
+
+
+
+  </script>
+</body>
+</html>ß
